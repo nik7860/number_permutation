@@ -1,0 +1,16 @@
+def permute(self, nums: List[int]) -> List[List[int]]:
+        ans = []
+        k = len(nums)
+        def backtrack(start, arr):
+            if len(arr)==k:
+                ans.append(arr.copy())
+            for i in range(0,k):
+                if nums[i] not in arr:
+                    arr.append(nums[i])
+                    backtrack(i+1,arr)
+                    print(nums[i],i,arr)
+                    arr.pop()
+
+            
+    backtrack(0, [])
+    return ans
