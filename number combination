@@ -1,0 +1,16 @@
+def subsets(self, nums: List[int]) -> List[List[int]]:
+        ans=[[]]
+        l=len(nums)
+        def backtrack(start,arr):
+            if arr not in ans:
+                ans.append(arr.copy())
+
+            for i in range(start,l):
+                if nums[i] not in arr:
+                    arr.append(nums[i])
+                    backtrack(i+1,arr)
+                    arr.pop()
+                    
+        
+        backtrack(0,[])
+        return ans
